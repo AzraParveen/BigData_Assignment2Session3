@@ -20,7 +20,6 @@ now if we want to check the data in our file we will use cat command followed by
 
 
 
-
 3.2.2 >>>>>
 
 Now we have to copy the above max-temp.txt file from the local file system to HDFS in the
@@ -32,12 +31,24 @@ now i have copied max-temp.txt file to HDFS ,now i have to check it worked or no
 check in browser and shared screenshot shows that it is copied to HDFS.
 
 
+
 3.2.3 >>>>>
 
 now we need to change the permission of our file max-temp.txt such that only owner and group of
 members should have r-w-x(read,write,execute) other should have only read permission.
 To change the permissions we will use chmod command as follows.
 
-> hadoop fs
+> hadoop fs -chmod 774 /user/acadgild/hadoop/max-temp.txt
+
+here 7 represents read,write execute all permissions to be granted while 4 represents only read 
+permission is granted to others. where the position defines that for owner and group of members 
+have all read,write and execute while others only have read permission.
+
+now we have to check permission granted or not for that we will use following command :
+
+> hadoop fs -ls /user/acadgild/hadoop/max-temp.txt
+
+the attached screenshot file shows that permission granted according to the problem to user,group and
+others.
 
 
